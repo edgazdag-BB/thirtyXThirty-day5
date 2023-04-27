@@ -1,0 +1,16 @@
+<div class="flex">
+  <app-product-list
+    class="list-component"
+    [productList]="productList"
+    [displayedColumns]="displayedColumns"
+    (addProduct)="addProduct()"
+    (editProduct)="updateProduct($event)"
+    (deleteProduct)="deleteProduct($event)"
+  ></app-product-list>
+  <app-product-detail *ngIf="currentProduct !== undefined"
+    class="detail-component"
+    [product]="currentProduct"
+    [productCategories]="productCategories"
+    (productUpdated)="updateProductDetails($event)"
+  ></app-product-detail>
+</div>
