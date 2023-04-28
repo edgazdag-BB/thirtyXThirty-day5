@@ -1,0 +1,26 @@
+<div class="flex">
+  <mat-card  class="mat-elevation-z8 ">
+    <mat-card-header>Product Information</mat-card-header>
+    <mat-form-field appearance="standard">
+      <mat-label>Product Name</mat-label>
+      <input matInput id="productName" name="productName" type="text" required [(ngModel)]="product.productName">
+    </mat-form-field>
+    <mat-label>Category</mat-label>
+    <mat-radio-group class="radio-group" [(ngModel)]="product.category">
+      <mat-radio-button class="radio-button" *ngFor="let category of productCategories" [value]="category">
+        {{category}}
+      </mat-radio-button>
+    </mat-radio-group>
+    <mat-form-field appearance="standard">
+      <mat-label>Quantity</mat-label>
+      <input matInput id="quantity" name="quantity" type="text" required [(ngModel)]="product.quantity">
+    </mat-form-field>
+    <mat-form-field appearance="standard">
+      <mat-label>Price</mat-label>
+      <input matInput id="price" name="price" type="text" required [(ngModel)]="product.price">
+    </mat-form-field>
+    <div class="flex">
+      <button mat-raised-button color="primary" (click)="productUpdated.emit(product)">Update Product</button>
+    </div>
+  </mat-card>
+</div>
